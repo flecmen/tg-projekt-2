@@ -64,8 +64,7 @@ function main() {
         }
     });
     rl.on('close', () => {
-        // Here you can use the parsed data
-        console.log(graph.activateEdges());
+        console.log(graph.activateEdges().map((edge) => `${edge.from} - ${edge.to}`).join('\n'));
     });
 }
 main();

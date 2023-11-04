@@ -22,7 +22,7 @@ class Graph {
         this.nodes.add(to);
     }
 
-    wouldCreateCycle(edge: Edge, currentEdges: Edge[]): boolean {
+    wouldCreateCycle(edge: Edge, currentEdges: Edge[]) {
         let visited: Set<string> = new Set();
         let stack: string[] = [edge.from];
 
@@ -42,7 +42,7 @@ class Graph {
         return false;
     }
 
-    activateEdges(): Edge[] {
+    activateEdges() {
         let result: Edge[] = [];
 
         // Sort edges by weight
@@ -80,8 +80,7 @@ function main(){
     });
     
     rl.on('close', () => {
-        // Here you can use the parsed data
-        console.log(graph.activateEdges())
+        console.log(graph.activateEdges().map((edge) => `${edge.from} - ${edge.to}`).join('\n'))
     });
 }
 
